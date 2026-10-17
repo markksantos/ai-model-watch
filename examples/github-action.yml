@@ -1,0 +1,33 @@
+# Copy to .github/workflows/ai-model-watch.yml. Add the keys you have as repository secrets;
+# providers without a key are skipped (OpenRouter needs none).
+name: ai-model-watch
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Restore last-seen lists
+        uses: actions/cache/restore@v4
+        with:
+          path: state.json
+          key: ai-model-watch-${{ github.run_id }}
+          restore-keys: ai-model-watch-
+      - name: Check for new models
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: npx --yes github:markksantos/ai-model-watch --state state.json --exit-code
+      - name: Save lists
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: state.json
+          key: ai-model-watch-${{ github.run_id }}
