@@ -4,6 +4,8 @@ List the models each AI provider's API serves, and see what's new since the last
 
 New models often show up in a provider's `/models` list before any announcement. `ai-model-watch` saves each provider's list, and on the next run prints only the model IDs that weren't there before. Run it by hand, from cron, or in CI with `--exit-code`.
 
+![ai-model-watch recording a baseline of 470 OpenRouter models, then reporting 2 new ones](docs/preview.png)
+
 ```
 $ ai-model-watch -p openrouter
 2026-10-17T09:26:01.231Z
