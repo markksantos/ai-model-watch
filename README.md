@@ -73,6 +73,12 @@ Or as a Claude Code plugin (this repo is its own marketplace):
 
 On Claude Code versions older than 2.1.275, run `/plugin marketplace add markksantos/ai-model-watch`, then `/plugin install ai-model-watch@ai-model-watch`. The plugin passes any provider keys set in your environment through to the server, and adds an `ai-model-watch` skill so Claude reaches for the tools when you ask whether a model is out yet.
 
+The skill on its own (Claude Code, Cursor, Codex and other agents), from [claude-plugins.dev](https://claude-plugins.dev/skills/@markksantos/ai-model-watch/ai-model-watch):
+
+```
+npx skills-installer install @markksantos/ai-model-watch/ai-model-watch
+```
+
 Claude Desktop, one click: download [`ai-model-watch-1.1.0.mcpb`](https://github.com/markksantos/ai-model-watch/releases/download/v1.1.0/ai-model-watch-1.1.0.mcpb) and open it. Desktop asks for the optional keys in its settings.
 
 Claude Desktop, Cursor and other clients (`mcpServers` in their JSON config):

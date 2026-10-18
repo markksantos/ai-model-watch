@@ -5,7 +5,7 @@ description: Use when the user asks whether an AI provider has released or start
 
 # Checking which AI models a provider serves
 
-A provider's `/models` endpoint is the best record of what its API serves, and new model IDs often show up there before any announcement. This skill uses the ai-model-watch MCP server that ships with this plugin. Listing models is free on every provider: nothing is generated and no tokens are spent.
+A provider's `/models` endpoint is the best record of what its API serves, and new model IDs often show up there before any announcement. This skill uses the ai-model-watch MCP server, which ships with the plugin; if its tools aren't available, use the shell commands further down. Listing models is free on every provider: nothing is generated and no tokens are spent.
 
 ## Which tool
 
