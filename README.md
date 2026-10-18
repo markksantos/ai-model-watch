@@ -33,6 +33,8 @@ Listing models is free on every one of these APIs. Nothing is generated and no t
 ## Install and run
 
 ```
+brew install markksantos/tap/ai-model-watch   # macOS / Linux (Homebrew)
+# or, with Node 18+
 npx github:markksantos/ai-model-watch
 # or
 git clone https://github.com/markksantos/ai-model-watch && node ai-model-watch/bin/ai-model-watch.js
