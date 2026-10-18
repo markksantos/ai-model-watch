@@ -1,6 +1,6 @@
 # ai-model-watch
 
-List the models each AI provider's API serves, and see what's new since the last time you looked. One command, no dependencies, Node 18+.
+List the models each AI provider's API serves, and see what's new since the last time you looked. One command, no dependencies, Node 18+. It also runs as an MCP server, so Claude or Cursor can check for you.
 
 New models often show up in a provider's `/models` list before any announcement. `ai-model-watch` saves each provider's list, and on the next run prints only the model IDs that weren't there before. Run it by hand, from cron, or in CI with `--exit-code`.
 
@@ -49,7 +49,36 @@ ai-model-watch [options]
       --json              JSON output
       --exit-code         exit 1 when anything new appears (for cron and CI)
   -q, --quiet             print only new models
+      --mcp               run as an MCP server on stdio
 ```
+
+### MCP server (Claude, Cursor, VS Code)
+
+`--mcp` runs it as a [Model Context Protocol](https://modelcontextprotocol.io) server on stdio, so an assistant can ask what's new itself. Two tools:
+
+- `check_new_models`: the model IDs each provider started listing since the last check (same state file as the CLI).
+- `list_models`: what one provider lists right now, with an optional substring filter.
+
+Claude Code:
+
+```
+claude mcp add ai-model-watch -- npx -y github:markksantos/ai-model-watch --mcp
+```
+
+Claude Desktop, Cursor and other clients (`mcpServers` in their JSON config):
+
+```json
+{
+  "mcpServers": {
+    "ai-model-watch": {
+      "command": "npx",
+      "args": ["-y", "github:markksantos/ai-model-watch", "--mcp"]
+    }
+  }
+}
+```
+
+OpenRouter works without a key. To include another provider, add its key from the [Providers](#providers) table to an `env` object in the same entry.
 
 ### Cron
 

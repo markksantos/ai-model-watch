@@ -17,6 +17,7 @@ Options:
       --json              JSON output
       --exit-code         exit 1 when anything new appears (for cron and CI)
   -q, --quiet             print only new models
+      --mcp               run as an MCP server on stdio (Claude, Cursor, VS Code, ...)
   -h, --help              this help
 
 Keys are read from the environment: ${Object.values(PROVIDERS).filter((p) => p.key).map((p) => p.key).join(', ')}.
@@ -25,7 +26,7 @@ Hosted version with email, push, SMS and phone alerts: https://artificialwatch.c
 `;
 
 function parse(argv) {
-  const o = { providers: null, state: null, watch: 0, removed: false, json: false, exitCode: false, quiet: false };
+  const o = { providers: null, state: null, watch: 0, removed: false, json: false, exitCode: false, quiet: false, mcp: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     const val = () => {
@@ -41,6 +42,7 @@ function parse(argv) {
     else if (a === '--json') o.json = true;
     else if (a === '--exit-code') o.exitCode = true;
     else if (a === '-q' || a === '--quiet') o.quiet = true;
+    else if (a === '--mcp') o.mcp = true;
     else fail(`Unknown option ${a}`);
   }
   if (o.providers) {
@@ -90,6 +92,7 @@ function print(report, o) {
 
 async function main() {
   const o = parse(process.argv.slice(2));
+  if (o.mcp) return require('../mcp.js').serve({ statePath: o.state || undefined });
   const opts = { providers: o.providers || undefined, statePath: o.state || undefined };
   let report = await check(opts);
   print(report, o);
