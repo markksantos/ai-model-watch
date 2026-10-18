@@ -1,6 +1,6 @@
 {
   "name": "ai-model-watch",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "MCP server that lists the models each AI provider's API serves (OpenRouter, OpenAI, Anthropic, Gemini, Mistral, xAI, DeepSeek) and reports which are new since the last check.",
   "author": {
     "name": "Mark Santos",
