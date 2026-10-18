@@ -65,6 +65,8 @@ Claude Code:
 claude mcp add ai-model-watch -- npx -y github:markksantos/ai-model-watch --mcp
 ```
 
+Claude Desktop, one click: download [`ai-model-watch-1.1.0.mcpb`](https://github.com/markksantos/ai-model-watch/releases/download/v1.1.0/ai-model-watch-1.1.0.mcpb) and open it. Desktop asks for the optional keys in its settings.
+
 Claude Desktop, Cursor and other clients (`mcpServers` in their JSON config):
 
 ```json

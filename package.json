@@ -1,6 +1,7 @@
 {
   "name": "ai-model-watch",
   "version": "1.1.0",
+  "mcpName": "io.github.markksantos/ai-model-watch",
   "description": "List the models each AI provider's API serves (OpenAI, Anthropic, Gemini, Mistral, xAI, DeepSeek, OpenRouter) and see what's new since the last run. Zero-dependency CLI, library and MCP server.",
   "main": "index.js",
   "bin": { "ai-model-watch": "bin/ai-model-watch.js" },

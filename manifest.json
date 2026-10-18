@@ -1,0 +1,103 @@
+{
+  "manifest_version": "0.3",
+  "name": "ai-model-watch",
+  "display_name": "AI Model Watch",
+  "version": "1.1.0",
+  "description": "List the models each AI provider's API serves and see which are new since the last check.",
+  "long_description": "Ask Claude which AI models just went live. `check_new_models` reports the model IDs each provider started listing since the last check, and `list_models` shows what one provider lists right now.\n\nOpenRouter works without a key. Add a key below to include OpenAI, Anthropic, Google Gemini, Mistral, xAI or DeepSeek. Listing models is free on every one of these APIs, and keys are sent only to their own provider.",
+  "author": {
+    "name": "Mark Santos",
+    "url": "https://markksantos.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markksantos/ai-model-watch.git"
+  },
+  "homepage": "https://artificialwatch.com/mcp",
+  "documentation": "https://github.com/markksantos/ai-model-watch#readme",
+  "support": "https://github.com/markksantos/ai-model-watch/issues",
+  "server": {
+    "type": "node",
+    "entry_point": "bin/ai-model-watch.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/bin/ai-model-watch.js", "--mcp"],
+      "env": {
+        "OPENAI_API_KEY": "${user_config.openai_api_key}",
+        "ANTHROPIC_API_KEY": "${user_config.anthropic_api_key}",
+        "GEMINI_API_KEY": "${user_config.gemini_api_key}",
+        "MISTRAL_API_KEY": "${user_config.mistral_api_key}",
+        "XAI_API_KEY": "${user_config.xai_api_key}",
+        "DEEPSEEK_API_KEY": "${user_config.deepseek_api_key}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "check_new_models",
+      "description": "Report the model IDs each provider started listing since the last check, then save the new lists."
+    },
+    {
+      "name": "list_models",
+      "description": "List the model IDs one provider's API serves right now, optionally filtered by a substring."
+    }
+  ],
+  "keywords": ["ai", "llm", "models", "model-releases", "openai", "anthropic", "gemini", "openrouter", "monitoring"],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "user_config": {
+    "openai_api_key": {
+      "type": "string",
+      "title": "OpenAI API key",
+      "description": "Optional. Includes OpenAI's model list.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "anthropic_api_key": {
+      "type": "string",
+      "title": "Anthropic API key",
+      "description": "Optional. Includes Anthropic's model list.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "gemini_api_key": {
+      "type": "string",
+      "title": "Google Gemini API key",
+      "description": "Optional. Includes Google Gemini's model list.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "mistral_api_key": {
+      "type": "string",
+      "title": "Mistral API key",
+      "description": "Optional. Includes Mistral's model list.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "xai_api_key": {
+      "type": "string",
+      "title": "xAI API key",
+      "description": "Optional. Includes xAI's model list.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    },
+    "deepseek_api_key": {
+      "type": "string",
+      "title": "DeepSeek API key",
+      "description": "Optional. Includes DeepSeek's model list.",
+      "sensitive": true,
+      "required": false,
+      "default": ""
+    }
+  }
+}
