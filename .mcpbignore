@@ -5,3 +5,4 @@ examples/
 test/
 server.json
 *.mcpb
+.claude-plugin/

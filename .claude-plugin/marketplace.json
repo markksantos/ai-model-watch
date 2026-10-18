@@ -1,0 +1,20 @@
+{
+  "name": "ai-model-watch",
+  "owner": {
+    "name": "Mark Santos",
+    "url": "https://markksantos.com"
+  },
+  "metadata": {
+    "description": "AI Model Watch: see which AI models each provider's API started serving since the last check."
+  },
+  "plugins": [
+    {
+      "name": "ai-model-watch",
+      "source": "./",
+      "description": "MCP server with two tools: check_new_models (model IDs each provider started listing since the last check) and list_models (what one provider lists right now). OpenRouter works without a key.",
+      "category": "monitoring",
+      "homepage": "https://artificialwatch.com/mcp",
+      "tags": ["mcp", "ai-models", "llm", "model-releases", "monitoring"]
+    }
+  ]
+}

@@ -65,6 +65,14 @@ Claude Code:
 claude mcp add ai-model-watch -- npx -y github:markksantos/ai-model-watch --mcp
 ```
 
+Or as a Claude Code plugin (this repo is its own marketplace):
+
+```
+/plugin install ai-model-watch --marketplace markksantos/ai-model-watch
+```
+
+On Claude Code versions older than 2.1.275, run `/plugin marketplace add markksantos/ai-model-watch`, then `/plugin install ai-model-watch@ai-model-watch`. The plugin passes any provider keys set in your environment through to the server.
+
 Claude Desktop, one click: download [`ai-model-watch-1.1.0.mcpb`](https://github.com/markksantos/ai-model-watch/releases/download/v1.1.0/ai-model-watch-1.1.0.mcpb) and open it. Desktop asks for the optional keys in its settings.
 
 Claude Desktop, Cursor and other clients (`mcpServers` in their JSON config):

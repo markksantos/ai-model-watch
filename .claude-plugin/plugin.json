@@ -1,0 +1,42 @@
+{
+  "name": "ai-model-watch",
+  "version": "1.1.0",
+  "description": "MCP server that lists the models each AI provider's API serves (OpenRouter, OpenAI, Anthropic, Gemini, Mistral, xAI, DeepSeek) and reports which are new since the last check.",
+  "author": {
+    "name": "Mark Santos",
+    "url": "https://markksantos.com"
+  },
+  "homepage": "https://artificialwatch.com/mcp",
+  "repository": "https://github.com/markksantos/ai-model-watch",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "ai",
+    "llm",
+    "models",
+    "model-releases",
+    "openai",
+    "anthropic",
+    "gemini",
+    "openrouter",
+    "monitoring"
+  ],
+  "mcpServers": {
+    "ai-model-watch": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/bin/ai-model-watch.js",
+        "--mcp"
+      ],
+      "env": {
+        "OPENAI_API_KEY": "${OPENAI_API_KEY:-}",
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY:-}",
+        "GEMINI_API_KEY": "${GEMINI_API_KEY:-}",
+        "GOOGLE_API_KEY": "${GOOGLE_API_KEY:-}",
+        "MISTRAL_API_KEY": "${MISTRAL_API_KEY:-}",
+        "XAI_API_KEY": "${XAI_API_KEY:-}",
+        "DEEPSEEK_API_KEY": "${DEEPSEEK_API_KEY:-}"
+      }
+    }
+  }
+}
