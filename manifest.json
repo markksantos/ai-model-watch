@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "ai-model-watch",
   "display_name": "AI Model Watch",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "List the models each AI provider's API serves and see which are new since the last check.",
   "long_description": "Ask Claude which AI models just went live. `check_new_models` reports the model IDs each provider started listing since the last check, and `list_models` shows what one provider lists right now.\n\nOpenRouter works without a key. Add a key below to include OpenAI, Anthropic, Google Gemini, Mistral, xAI or DeepSeek. Listing models is free on every one of these APIs, and keys are sent only to their own provider.",
   "author": {

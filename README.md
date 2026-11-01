@@ -28,7 +28,7 @@ The first run records a baseline (`OpenRouter: 470 models recorded as the baseli
 | xAI | `GET https://api.x.ai/v1/models` | `XAI_API_KEY` |
 | DeepSeek | `GET https://api.deepseek.com/models` | `DEEPSEEK_API_KEY` |
 
-Listing models is free on every one of these APIs. Nothing is generated and no tokens are spent. A provider whose key isn't set is skipped. Keys are sent only to that provider and never printed.
+Listing models is free on every one of these APIs. Nothing is generated and no tokens are spent. A provider whose key isn't set is skipped. Keys are sent only to that provider, never across a redirect, and never printed.
 
 ## Install and run
 
@@ -79,7 +79,7 @@ The skill on its own (Claude Code, Cursor, Codex and other agents), from [claude
 npx skills-installer install @markksantos/ai-model-watch/ai-model-watch
 ```
 
-Claude Desktop, one click: download [`ai-model-watch-1.1.0.mcpb`](https://github.com/markksantos/ai-model-watch/releases/download/v1.1.0/ai-model-watch-1.1.0.mcpb) and open it. Desktop asks for the optional keys in its settings.
+Claude Desktop, one click: download [`ai-model-watch-1.2.0.mcpb`](https://github.com/markksantos/ai-model-watch/releases/download/v1.2.0/ai-model-watch-1.2.0.mcpb) and open it. Desktop asks for the optional keys in its settings.
 
 Claude Desktop, Cursor and other clients (`mcpServers` in their JSON config):
 
@@ -119,7 +119,7 @@ for (const p of report.providers) {
 }
 ```
 
-`fetchProvider(id, { env, fetch })` returns `{ status: 'ok' | 'skipped' | 'error', models: [{ id, name, created }] }`. `check()` diffs against the state file and saves the new lists. A provider that errors keeps its last good list, so a failed request never makes the next run report the whole catalog as new.
+`fetchProvider(id, { env, fetch })` returns `{ status: 'ok' | 'skipped' | 'error', models: [{ id, name, created }] }`. `check()` diffs against the state file and saves the new lists. A provider that errors keeps its last good list. Errors include HTTP and network failures, a redirect, a body that isn't that provider's list shape, a malformed model ID, and pagination that doesn't finish. So a bad response never empties the saved list or makes the next run report the whole catalog as new.
 
 ## What a list can't tell you
 

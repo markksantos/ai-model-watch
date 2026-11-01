@@ -1,0 +1,12 @@
+{
+  "models": [
+    {
+      "name": "models/text-embedding-004",
+      "version": "004",
+      "displayName": "Text Embedding 004",
+      "inputTokenLimit": 2048,
+      "outputTokenLimit": 1,
+      "supportedGenerationMethods": ["embedContent"]
+    }
+  ]
+}

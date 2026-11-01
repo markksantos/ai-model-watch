@@ -1,0 +1,6 @@
+{
+  "data": [
+    { "id": "grok-4", "created": 1752019200, "object": "model", "owned_by": "xai" }
+  ],
+  "object": "list"
+}

@@ -12,6 +12,8 @@ The PRD asks for "is X out yet?" answers that come from the providers themselves
 
 We read each provider's `/models` endpoint, diff it against a local state file, and expose that through a dependency-free MCP server (`--mcp`) with two tools, `check_new_models` and `list_models`. A skill tells the agent which tool fits which question.
 
+A list replaces the saved one only after it passes that provider's shape check (the list field, every entry and model ID, and the pagination cursor) and every page has been read. A malformed, non-JSON or unfinished response is an error, and the provider keeps its last good list (since 1.2.0). Requests never follow redirects, because fetch forwards custom key headers such as `x-api-key` and `x-goog-api-key` to the redirect target even when it drops `Authorization`.
+
 ## Alternatives considered
 
 | Alternative | Why rejected |

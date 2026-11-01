@@ -1,0 +1,13 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "mistral-large-latest",
+      "object": "model",
+      "created": 1730000000,
+      "owned_by": "mistralai",
+      "name": "mistral-large-2411",
+      "capabilities": { "completion_chat": true, "function_calling": true }
+    }
+  ]
+}
