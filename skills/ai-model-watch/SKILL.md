@@ -1,7 +1,7 @@
 ---
 name: ai-model-watch
 description: Use when the user asks whether an AI provider has released or started serving a new model, which models OpenAI, Anthropic, Gemini, Mistral, xAI, DeepSeek or OpenRouter list right now, or whether a specific model ID is available yet. Trigger with "is GPT-6 out yet?", "any new models today?" or "what does OpenRouter list for Kimi?".
-version: 1.1.1
+version: 1.2.0
 author: Mark Santos <hello@markksantos.com>
 license: MIT
 compatibility: Claude Code with the ai-model-watch plugin or MCP server; any agent that can run Node 18+ for the CLI fallback. Network access to the provider APIs.
@@ -41,7 +41,7 @@ OpenRouter needs no key and lists models from most labs. Every other provider is
 ## Error Handling
 
 - **Skipped provider**: no key in the environment. This is not an error; fall back to OpenRouter as in step 3.
-- **Provider error** (network, rate limit, bad key): report it for that provider only. `check_new_models` keeps that provider's last good list, so the next check won't report its whole catalog as new.
+- **Provider error** (network, rate limit, bad key, or a malformed or cut-off response): report it for that provider only. `check_new_models` keeps that provider's last good list, so the next check won't report its whole catalog as new.
 - **Limits of a list**: a listed ID means the provider lists it. It doesn't prove the model answers requests yet, and some providers list models days before general availability. `created` is whatever date the provider reports, not the day the model appeared. Don't infer release dates or capabilities from a name.
 
 ## Examples

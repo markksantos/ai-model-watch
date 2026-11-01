@@ -3,7 +3,7 @@
   "name": "io.github.markksantos/ai-model-watch",
   "title": "AI Model Watch",
   "description": "List the models each AI provider's API serves and see which are new since the last check.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "websiteUrl": "https://artificialwatch.com/mcp",
   "repository": {
     "url": "https://github.com/markksantos/ai-model-watch",
@@ -12,8 +12,8 @@
   "packages": [
     {
       "registryType": "mcpb",
-      "identifier": "https://github.com/markksantos/ai-model-watch/releases/download/v1.1.0/ai-model-watch-1.1.0.mcpb",
-      "fileSha256": "f05849b96b5fd18c80d2c1dceb3215d321cb6d21d12127d1869a8c446704e4a2",
+      "identifier": "https://github.com/markksantos/ai-model-watch/releases/download/v1.2.0/ai-model-watch-1.2.0.mcpb",
+      "fileSha256": "4217ff4958f3277ebfe9be284b49c41402c86403b877a583c7d31a1d3f3d4274",
       "transport": {
         "type": "stdio"
       }

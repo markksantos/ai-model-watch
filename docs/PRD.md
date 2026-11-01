@@ -19,7 +19,7 @@ New models often appear in a provider's `/models` list before any announcement. 
 ## Success criteria
 
 1. `list_models` answers "does this provider list X?" from the provider's own API in one call, spending no tokens.
-2. `check_new_models` reports only IDs added since the previous check, and a provider that errors keeps its last good list, so it never reports a whole catalog as new (covered by the test suite).
+2. `check_new_models` reports only IDs added since the previous check, and a provider that errors (including a malformed or incomplete response) keeps its last good list, so it never reports a whole catalog as new (covered by the test suite).
 3. Works with no keys at all, through OpenRouter.
 4. No runtime dependencies; Node 18+; `npm test` passes.
 

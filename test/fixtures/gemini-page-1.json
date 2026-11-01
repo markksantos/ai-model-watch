@@ -1,0 +1,13 @@
+{
+  "models": [
+    {
+      "name": "models/gemini-2.5-pro",
+      "version": "2.5",
+      "displayName": "Gemini 2.5 Pro",
+      "inputTokenLimit": 1048576,
+      "outputTokenLimit": 65536,
+      "supportedGenerationMethods": ["generateContent", "countTokens"]
+    }
+  ],
+  "nextPageToken": "Ch1tb2RlbHMvZ2VtaW5pLTIuNS1wcm8"
+}
